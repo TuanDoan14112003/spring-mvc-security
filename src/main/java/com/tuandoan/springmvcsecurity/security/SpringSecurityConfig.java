@@ -35,7 +35,8 @@ public class SpringSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeHttpRequests(configurer ->
                 configurer.anyRequest().authenticated()
-        ).formLogin(form -> form.loginPage("/showLoginPage").loginProcessingUrl("/authenticateTheUser").permitAll());
+        ).formLogin(form -> form.loginPage("/showLoginPage").loginProcessingUrl("/authenticateTheUser").permitAll())
+                .logout(logout -> logout.permitAll());
     return httpSecurity.build();
     }
 
