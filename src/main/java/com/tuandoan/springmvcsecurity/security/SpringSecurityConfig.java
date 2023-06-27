@@ -40,7 +40,8 @@ public class SpringSecurityConfig {
                         .requestMatchers("/systems/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
         ).formLogin(form -> form.loginPage("/showLoginPage").loginProcessingUrl("/authenticateTheUser").permitAll())
-                .logout(logout -> logout.permitAll());
+        .logout(logout -> logout.permitAll())
+        .exceptionHandling(configurer -> configurer.accessDeniedPage("/access-denied"));
     return httpSecurity.build();
     }
 
