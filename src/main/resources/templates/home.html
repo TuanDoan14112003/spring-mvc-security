@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://thymeleaf.org">
+<html lang="en" xmlns:th="http://thymeleaf.org"
+    xmlns:sec="http://thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-    <p>Hello</p>
+    <p>Hello <span sec:authentication="principal.username"></span></p>
+    <p>Roles: <span sec:authentication="principal.authorities"></span></p>
+    <a th:href="@{/leaders}">This page is for managers only</a>
+    <br>
+    <a th:href="@{/systems}">This page is for admins only</a>
+
     <form action="#" th:action="@{/logout}" method="POST">
         <input type="submit" value="Logout">
     </form>

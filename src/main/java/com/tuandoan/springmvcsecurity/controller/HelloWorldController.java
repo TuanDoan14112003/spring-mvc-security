@@ -9,4 +9,12 @@ public class HelloWorldController {
     public String sayHello() {
         return "home";
     }
+    @GetMapping("/leaders")
+    public String leaders() {
+        return "leaders";
+    }
+    @GetMapping("/systems")
+    public String systems() {
+        return "systems";
+    }
 }
